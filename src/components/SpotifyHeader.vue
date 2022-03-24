@@ -1,6 +1,6 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
-    <div class="logo"></div>
+    <div class="logo rounded-circle"></div>
     <select name="genre" id="genre">
       <option value="">Seleziona un genere</option>
       <option value="Rock">Rock</option>
