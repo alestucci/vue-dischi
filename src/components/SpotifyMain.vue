@@ -6,8 +6,9 @@
       </h1>
       <div
         v-else
-        class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-3 gx-5"
+        class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-3 gx-5"
       >
+        <h1>{{ genreProp }}</h1>
         <album-card
           v-for="album in albumsArray"
           :key="album.title"
@@ -32,6 +33,9 @@ export default {
   components: {
     AlbumCard,
   },
+  props: {
+    genreProp: String,
+  },
   created() {
     setTimeout(() => {
       axios
@@ -47,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 main {
   min-height: calc(100vh - 70px);
-  padding: 5rem;
+  padding: 5rem 0;
   background-color: #1e2d3b;
 }
 h1 {

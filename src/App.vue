@@ -1,7 +1,7 @@
 <template>
   <div>
-    <spotify-header />
-    <spotify-main />
+    <spotify-header @genre="genreFilter" />
+    <spotify-main :genre-prop="genrePropString" />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     SpotifyHeader,
     SpotifyMain,
+  },
+  data() {
+    return {
+      genrePropString: "",
+    };
+  },
+  methods: {
+    genreFilter(genreString) {
+      this.genrePropString = genreString;
+    },
   },
 };
 </script>
