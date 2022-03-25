@@ -8,9 +8,8 @@
         v-else
         class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-3 gx-5"
       >
-        <h1>{{ genreProp }}</h1>
         <album-card
-          v-for="album in albumsArray"
+          v-for="album in albumsFilter"
           :key="album.title"
           :album-data="album"
         />
@@ -30,11 +29,22 @@ export default {
       albumsArray: null,
     };
   },
+  props: {
+    genreProp: String,
+  },
   components: {
     AlbumCard,
   },
-  props: {
-    genreProp: String,
+  computed: {
+    albumsFilter() {
+      if (this.genreProp != "All" || this.genreProp == null) {
+        return this.albumsArray.filter(
+          (album) => album.genre.toLowerCase() == this.genreProp.toLowerCase()
+        );
+      } else {
+        return this.albumsArray;
+      }
+    },
   },
   created() {
     setTimeout(() => {

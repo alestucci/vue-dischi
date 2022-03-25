@@ -4,8 +4,8 @@
     <select
       name="genre"
       id="genre"
-      v-model="genreString"
       @change="$emit('genre', genreString)"
+      v-model="genreString"
     >
       <option value="All" selected>Seleziona un genere</option>
       <option value="Rock">Rock</option>
