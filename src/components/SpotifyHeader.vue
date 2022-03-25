@@ -21,7 +21,7 @@ export default {
   name: "SpotifyHeader",
   data() {
     return {
-      genreString: String,
+      genreString: "All",
     };
   },
 };
