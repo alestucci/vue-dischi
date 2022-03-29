@@ -42,18 +42,18 @@ export default {
           (album) => album.genre.toLowerCase() == this.genreProp.toLowerCase()
         );
       } else {
-        return this.albumsArray;
+        return this.albumsArray.filter((album) =>
+          album.genre.toLowerCase().includes(this.genreProp.toLowerCase())
+        );
       }
     },
   },
   created() {
-    setTimeout(() => {
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((response) => {
-          this.albumsArray = response.data.response;
-        });
-    }, 2000);
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/array/music")
+      .then((response) => {
+        this.albumsArray = response.data.response;
+      });
   },
 };
 </script>
